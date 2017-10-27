@@ -25,14 +25,13 @@
 			<div class="col-lg-12 text-center">
 				<h1>Fine CMS</h1>
 			</div>
-			<div class="article"></div>
 		<?php foreach($articles as $a): ?>
 			<div class="article">
 				<h2><a href="articles.php?id=<?=$a['id']?>"><?=$a['title'] ?></a></h2>
 				<em>Опубликовано: <?=$a['date']?></em>
 				<p><?=$a['content']?></p>
 			</div>
-		<? php endforeach ?>
+		<?php endforeach ?>
 		</div>
 	</div>
 </section>
