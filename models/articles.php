@@ -21,7 +21,7 @@ function articles_all($link){
 
 }
 
-function articles_get($link, $id_article){
+function article_get($link, $id_article){
 	$query = sprintf("SELECT * FROM articles WHERE id=%d",
 (int)$id_article);
 	$result = mysqli_query($link, $query);
@@ -34,8 +34,24 @@ function articles_get($link, $id_article){
 	return $article;
 }
 
-function articles_new($title, $date, $content){
+function articles_new($link, $title, $date, $content){
+	$title = trim($title);
+	$content = trim($content);
 
+	if ($title == '')
+		return false;
+
+	$t = "INSERT INTO articles (title, date, content) VALUES ('%s', '%s', '%s')";
+
+	$query = sprintf($t, mysqli_real_escape_string($link, $title), mysqli_real_escape_string($link, $date), mysqli_real_escape_string($link, $content));
+
+		echo $query;
+		$result = mysqli_query($link, $query);
+
+		if (!$result)
+			die(mysqli_error($link));
+
+		return true;
 }
 
 function articles_edit($id, $title, $date, $content){
