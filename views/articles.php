@@ -26,7 +26,7 @@
 				<h1>Fine CMS</h1>
 			</div>
 		<?php foreach($articles as $a): ?>
-			<div class="article">
+			<div class="col-lg-4 text-center article">
 				<h2><a href="articles.php?id=<?=$a['id']?>"><?=$a['title'] ?></a></h2>
 				<em>Опубликовано: <?=$a['date']?></em>
 				<p><?=$a['content']?></p>
