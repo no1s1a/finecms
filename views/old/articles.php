@@ -13,7 +13,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
+
+<link rel="stylesheet" href="/finecms/finecms/views/style.css">
 
 	<meta charset="utf-8">
 	<title>FineCMS</title>
@@ -24,42 +25,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h1>Добавление новости</h1>
+				<h1>Fine CMS</h1>
 			</div>
-	<style>
-		.form-item{
-			width: 100%;
-		}
-		.typeinput{
-			width:600px;
-		}
-	</style>
-
-			<form style="float: left;" method="POST" action="index.php">
-				<div class="col-lg-12 typeinput">
-					<label>
-						Заголовок
-						<input type="text" name="title" value="" class="form-item" autofocus required>
-					</label>
-				</div>
-				<div class="col-lg-12 typeinput">
-					<label>
-						Дата
-						<input type="date" name="date" value="" class="form-item" autofocus required>
-					</label>
-				</div>
-				<div class="col-lg-12 typeinput">
-					<label>
-						Текста
-						<textarea name="content" id="editor"></textarea>
-
-					</label>
-				</div>
-				<div class="col-lg-12">
-					<input type="submit" class="btn" value="Сохранить">
-				</div>
-			</form>
-
+		<?php foreach($articles as $a): ?>
+			<div class="col-lg-4 text-center article">
+				<h2><a href="article.php?id=<?=$a['id']?>"><?=$a['title'] ?></a></h2>
+				<em>Опубликовано: <?=$a['date']?></em>
+				<p><?=$a['content']?></p>
+			</div>
+		<?php endforeach ?>
 		</div>
 	</div>
 </section>

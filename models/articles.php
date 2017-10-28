@@ -4,7 +4,7 @@ function articles_all($link){
 
 	$query = "SELECT * FROM articles ORDER BY id DESC";
 	$result = mysqli_query($link, $query);
-
+	
 	if (!$result)
 		die(mysqli_error($link));
 
@@ -16,6 +16,9 @@ function articles_all($link){
 		$row = mysqli_fetch_assoc($result);
 		$articles[] = $row;
 	}	
+	
+
+
 
 	return $articles;
 
@@ -28,9 +31,9 @@ function article_get($link, $id_article){
 
 	if (!$result)
 		die(mysqli_error($link));
-
+	
 	$article = mysqli_fetch_assoc($result);
-
+	
 	return $article;
 }
 
@@ -52,6 +55,7 @@ function articles_new($link, $title, $date, $content){
 			die(mysqli_error($link));
 
 		return true;
+
 }
 
 function articles_edit($id, $title, $date, $content){

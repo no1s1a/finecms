@@ -1,48 +1,119 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <head>
+    <title>Fine CMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/finecms/finecms/views/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="/finecms/finecms/views/css/styles.css" rel="stylesheet">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<meta charset="utf-8">
-	<title>FineCMS</title>
-</head>
-<body>
-<header></header>
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h1>Fine CMS</h1>
-			</div>
-		<?php foreach($articles as $a): ?>
-			<div class="col-lg-4 text-center article">
-				<h2><a href="article.php?id=<?=$a['id']?>"><?=$a['title'] ?></a></h2>
-				<em>Опубликовано: <?=$a['date']?></em>
-				<p><?=$a['content']?></p>
-			</div>
-		<?php endforeach ?>
-		</div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="index.php">Fine CMS</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-5">
+	              <div class="row">
+	                <div class="col-lg-12">
+	                  <div class="input-group form">
+	                       <input type="text" class="form-control" placeholder="Search...">
+	                       <span class="input-group-btn">
+	                         <button class="btn btn-primary" type="button">Поиск</button>
+	                       </span>
+	                  </div>
+	                </div>
+	              </div>
+	           </div>
+	           <div class="col-md-2">
+	              <div class="navbar navbar-inverse" role="banner">
+	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+	                    <ul class="nav navbar-nav">
+	                      <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+	                        <ul class="dropdown-menu animated fadeInUp">
+	                          <li><a href="profile.html">Profile</a></li>
+	                          <li><a href="login.html">Logout</a></li>
+	                        </ul>
+	                      </li>
+	                    </ul>
+	                  </nav>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
 	</div>
-</section>
-<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<small>Copyright by no1s1a 2017.</small>
-			</div>
+
+    <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="index.php"><i class="glyphicon glyphicon-home"></i> Главная</a></li>
+                    <li class="submenu">
+                         <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Pages
+                            <span class="caret pull-right"></span>
+                         </a>
+                         <!-- Sub menu -->
+                         <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+		  </div>
+		  <div class="col-md-10">
+		  	<div class="row">
+		  		<?php foreach($articles as $a): ?>
+		  		<div class="col-md-6">
+		  			<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title"><h2><a href="article.php?id=<?=$a['id']?>"><?=$a['title'] ?></a></h2></div>
+							
+							<div class="panel-options">
+								<em>Опубликовано: <?=$a['date']?></em>
+							</div>
+						</div>
+		  				<div class="panel-body">
+		  					<p><?=$a['content']?></p>
+							<br /><br />
+		  				</div>
+		  			</div>
+		  		</div>
+		  		<?php endforeach ?>
+		  </div>
 		</div>
-	</div>
-</footer>
-</body>
+    </div>
+
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2017 <a href='#'>Real Brand</a>
+            </div>
+            
+         </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/finecms/finecms/views/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/finecms/finecms/views/js/custom.js"></script>
+  </body>
 </html>

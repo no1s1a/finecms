@@ -13,7 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
 	<meta charset="utf-8">
 	<title>FineCMS</title>
 </head>
@@ -50,7 +50,14 @@
 				<div class="col-lg-12 typeinput">
 					<label>
 						Текста
-						<textarea type="text" name="content" value="" class="form-item" required></textarea>
+						<textarea style="width: 500px;" name="content" id="editor"></textarea>
+						<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 					</label>
 				</div>
 				<div class="col-lg-12">
